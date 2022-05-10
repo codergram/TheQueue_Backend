@@ -2,11 +2,17 @@ openapi: 3.0.3
 info:
   title: The Queue
   version: 1.0.0
-  description: "API Documentation used for the backend of our 3. Semester project"
-  contact: {
-    name: Emil Elkjær Nielsen,
-    email: cph-en93@cphbusiness.dk
-  }
+  description: "API Documentation used for the backend of our exam project"
+  contact: [
+{
+name: Emil Elkjær Nielsen,
+email: cph-en93@cphbusiness.dk
+},
+{
+    name: Sigurd Arik Gaarde Nielsen,
+    email: cph-at89@cphbusiness.dk
+}
+]
   license: {
     name: MIT,
     url: "https://github.com/codergram/TheQueue_Backend/blob/main/LICENSE"
