@@ -10,7 +10,9 @@
   <name>TheQueue_Backend</name>
   <packaging>war</packaging>
 
+
   <properties>
+    <warName>ROOT</warName>
     <!-- IMPORTANT: Add the URL to your own tomcat server -->
     <!-- NOTE: Remember to set HTTP/HTTPS accordingly -->
     <remote.server>https://api.thequeue.dk/manager/text</remote.server>
@@ -149,7 +151,7 @@
   </dependencies>
 
   <build>
-    <finalName>ROOT</finalName>
+    <finalName>${warName}</finalName>
     <plugins>
       <!-- Used to deploy to tomcat server -->
       <plugin>
