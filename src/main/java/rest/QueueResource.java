@@ -47,7 +47,7 @@ public class QueueResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @Path("courses/count")
+    @Path("courses/count")
   public String countCourses(){
     System.out.println("GET REQUEST: countCourses");
     return "{\"count\":"+FACADE.getNumberOfCourses()+"}";

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>me.codergram</groupId>
@@ -10,40 +8,41 @@
   <name>TheQueue_Backend</name>
   <packaging>war</packaging>
 
-
   <properties>
     <warName>ROOT</warName>
-    <!-- IMPORTANT: Add the URL to your own tomcat server -->
-    <!-- NOTE: Remember to set HTTP/HTTPS accordingly -->
-    <remote.server>https://api.thequeue.dk/manager/text</remote.server>
-
-    <!-- IMPORTANT: Change name of database used on server -->
-    <!-- NOTE: Should already be created on your droplet -->
-    <db.name>thequeue</db.name>
-
-
-    <!-- DO NOT CHANGE BELOW THIS -->
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <junit.version>5.7.0</junit.version>
     <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- TODO: Add the URL to your own tomcat server. Used to deploy your WAR-file -->
+    <!-- IMPORTANT-1: If your server uses https (via NGINX) use your DOMAIN NAME and https below: -->
+    <!-- IMPORTANT-2: Observe we are NOT using /manager/html but /manager/text for script uploads -->
+    <remote.server>https://api.thequeue.dk/manager/text</remote.server>
+
+    <!-- TODO: Add your own database name -->
+    <!-- IMPORTANT-1: The database should exist on your droplet -->
+    <db.name>thequeue</db.name>
   </properties>
 
   <dependencies>
-    <!-- REST dependencies -->
+
     <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
-      <version>2.1.1</version>
-      <scope>provided</scope>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa</artifactId>
+      <version>2.7.7</version>
     </dependency>
+
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
-      <scope>provided</scope>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.26</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.bundles</groupId>
+      <artifactId>jaxrs-ri</artifactId>
+      <version>2.32</version>
+    </dependency>
+
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
@@ -51,28 +50,28 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.glassfish.jersey.bundles</groupId>
-      <artifactId>jaxrs-ri</artifactId>
-      <version>2.32</version>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
     </dependency>
 
     <!-- Test dependencies -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.version}</version>
+      <version>5.7.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
-      <version>${junit.version}</version>
+      <version>5.7.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.7.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -82,7 +81,7 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Dependencies for REST testing -->
+    <!-- Grizly Server used to test REST endpoints -->
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-grizzly2-http</artifactId>
@@ -97,18 +96,15 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Database -->
+    <!-- Used for setting database name in pom.xml -->
     <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>eclipselink</artifactId>
-      <version>2.7.7</version>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.17</version>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>properties-maven-plugin</artifactId>
+      <version>1.0.0</version>
     </dependency>
 
+
+    <!-- own shit -->
     <!-- Security Dependencies (jwt-support) -->
     <dependency>
       <groupId>com.nimbusds</groupId>
@@ -119,29 +115,11 @@
       <groupId>org.mindrot</groupId>
       <artifactId>jbcrypt</artifactId>
       <version>0.4</version>
-    </dependency>
-
-    <!-- Utilities -->
-
-    <!-- Gson tool -->
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.8.6</version>
-    </dependency>
-    <!-- Used for setting database name in pom.xml when deployed -->
-    <dependency>
-      <groupId>org.codehaus.mojo</groupId>
-      <artifactId>properties-maven-plugin</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-
-    <!-- For mail -->
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.7</version>
-    </dependency>
+    </dependency><dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.7</version>
+  </dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
       <artifactId>javax.mail</artifactId>
@@ -153,7 +131,7 @@
   <build>
     <finalName>${warName}</finalName>
     <plugins>
-      <!-- Used to deploy to tomcat server -->
+      <!-- Plugin used to deploy to remote server -->
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
@@ -168,26 +146,9 @@
         </configuration>
       </plugin>
 
-      <!-- Used to make save properties set in Pom.xml -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>properties-maven-plugin</artifactId>
-        <version>1.0.0</version>
-        <executions>
-          <execution>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>write-project-properties</goal>
-            </goals>
-            <configuration>
-              <outputFile>${project.build.outputDirectory}/properties-from-pom.properties</outputFile>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
       <!--This is used to enable @BeforeAll etc used in jUnit 5 -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.21.0</version>
         <dependencies>
@@ -204,36 +165,36 @@
         </dependencies>
       </plugin>
 
-      <!-- Used to package into .war files -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.0</version>
-        <configuration>
-          <warName>${warName}</warName>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-
-      <!-- Used to compile with Maven -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
+          <source>1.8</source>
+          <target>1.8</target>
           <compilerArguments>
             <endorseddirs>${endorsed.dir}</endorseddirs>
           </compilerArguments>
+          <compilerArgs>
+            <!-- Comment in (and dont forget out) as required -->
+            <!-- <arg>-verbose</arg>-->
+            <!-- <arg>-Xlint:unchecked</arg>-->
+          </compilerArgs>
         </configuration>
       </plugin>
-
-      <!-- Used to validate Maven plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <warName>${warName}</warName>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.3</version>
+        <version>2.6</version>
         <executions>
           <execution>
             <phase>validate</phase>
@@ -255,7 +216,23 @@
           </execution>
         </executions>
       </plugin>
-
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>write-project-properties</goal>
+            </goals>
+            <configuration>
+              <outputFile>${project.build.outputDirectory}/properties-from-pom.properties</outputFile>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+
 </project>

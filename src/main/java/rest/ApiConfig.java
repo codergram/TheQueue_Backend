@@ -7,6 +7,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 
 @ApplicationPath("api")
 public class ApiConfig extends Application {
+
   @Override
   public Set<Class<?>> getClasses() {
     Set<Class<?>> resources = new java.util.HashSet<>();
@@ -26,9 +27,9 @@ public class ApiConfig extends Application {
     resources.add(ExceptionMapper.class);
     resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
     resources.add(QueueResource.class);
+    resources.add(ExternalResource.class);
     resources.add(security.JWTAuthFilter.class);
     resources.add(AuthResource.class);
     resources.add(security.RolesAllowedFilter.class);
-    resources.add(ExternalResource.class);
   }
 }

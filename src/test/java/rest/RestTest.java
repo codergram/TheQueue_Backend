@@ -50,10 +50,13 @@ class RestTest {
   private static Student student1, student2, student3, student4;
   private static Teacher teacher1, teacher2, teacher3;
 
-  static HttpServer startServer() {
+
+
+  /*static HttpServer startServer() {
     ResourceConfig rc = ResourceConfig.forApplication(new ApiConfig());
     return GrizzlyHttpServerFactory.createHttpServer(BASE_URI, rc);
-  }
+  }*/
+
 
   @BeforeAll
   public static void setUpClass() {
@@ -61,7 +64,7 @@ class RestTest {
     EMF_Creator.startREST_TestWithDB();
     emf = EMF_Creator.createEntityManagerFactoryForTest();
 
-    httpServer = startServer();
+    //httpServer = startServer();
     //Setup RestAssured
     RestAssured.baseURI = SERVER_URL;
     RestAssured.port = SERVER_PORT;
