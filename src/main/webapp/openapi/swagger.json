@@ -23,7 +23,7 @@ servers:
   - url: "http://127.0.0.1:8080"
     description: Localhost
 paths:
-  /TheQueue_Backend/api/:
+  /api/:
     get:
       summary: API heartbeat
       description: API heartbeat
@@ -60,7 +60,7 @@ paths:
                 API heartbeat:
                   value:
                     msg: "I'm alive"
-  /TheQueue_Backend/api/auth/:
+  /api/auth/:
     post:
       summary: Get JWT token
       description: Get JWT token
@@ -116,7 +116,7 @@ paths:
                   value:
                     token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1bmRlcnZpc2VyQGNwaGJ1c2luZXNzLmRrIiwicm9sZXMiOiJhZG1pbiIsImV4cCI6MTYyMDc1NzIzOSwiaWF0IjoxNjIwNzU1NDM5LCJpc3N1ZXIiOiJjb2RlcmdyYW0ubWUiLCJ1c2VybmFtZSI6InVuZGVydmlzZXJAY3BoYnVzaW5lc3MuZGsifQ.7Q0haE6ljHgPCFDT15Y08xguO-lqFEp4kMZY4KYAh88
                     username: underviser@cphbusiness.dk
-  /TheQueue_Backend/api/courses/count:
+  /api/courses/count:
     get:
       summary: Count courses in db
       description: Count courses in db
@@ -153,7 +153,7 @@ paths:
                 Count courses in db:
                   value:
                     count: 12
-  /TheQueue_Backend/api/question:
+  /api/question:
     put:
       summary: Add answer to question
       description: Add answer to question
@@ -376,7 +376,7 @@ paths:
                     studentLink: "http://facebook.ru"
                     timestamp: "2021-05-11 20:00:14.431462"
                     topic: Fejl i postman
-  /TheQueue_Backend/api/questions:
+  /api/questions:
     get:
       summary: Get all questions
       description: Get all questions
@@ -733,7 +733,7 @@ paths:
                       studentLink: "http://facebook.ru"
                       timestamp: "2021-05-11 19:45:30.0"
                       topic: Fejl i postman
-  /TheQueue_Backend/api/questions/semester/2:
+  /api/questions/semester/2:
     get:
       summary: Get questions by semester id
       description: Get questions by semester id
@@ -918,7 +918,7 @@ paths:
                       studentLink: "http://facebook.ru"
                       timestamp: "2021-05-11 19:45:30.0"
                       topic: Fejl i postman
-  /TheQueue_Backend/api/schools/all:
+  /api/schools/all:
     get:
       summary: Get all schools with courses and semesters
       description: Get all schools with courses and semesters
@@ -1392,7 +1392,7 @@ paths:
                       id: 4
                       img: cbs.png
                       name: CBS
-  /TheQueue_Backend/api/schools/count:
+  /api/schools/count:
     get:
       summary: Count schools in DB
       description: Count schools in DB
