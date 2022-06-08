@@ -3,7 +3,7 @@ info:
   title: The Queue
   version: 1.0.0
   description: "API Documentation used for the backend of our exam project"
-  contact: [
+  contacts: [
 {
 name: Emil Elkjær Nielsen,
 email: cph-en93@cphbusiness.dk
@@ -20,10 +20,8 @@ email: cph-en93@cphbusiness.dk
 servers:
   - url: "https://api.codergram.me"
     description: Production
-  - url: "http://127.0.0.1:8080"
-    description: Localhost
 paths:
-  /api/:
+  /:
     get:
       summary: API heartbeat
       description: API heartbeat
@@ -43,7 +41,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 17:59:07 GMT"
+                example: "Wens, 08 June 2022 17:59:07 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -60,7 +58,7 @@ paths:
                 API heartbeat:
                   value:
                     msg: "I'm alive"
-  /api/auth/:
+  /auth/:
     post:
       summary: Get JWT token
       description: Get JWT token
@@ -95,7 +93,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 17:50:40 GMT"
+                example: "Wens, 08 June 2022 17:50:40 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -116,7 +114,7 @@ paths:
                   value:
                     token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1bmRlcnZpc2VyQGNwaGJ1c2luZXNzLmRrIiwicm9sZXMiOiJhZG1pbiIsImV4cCI6MTYyMDc1NzIzOSwiaWF0IjoxNjIwNzU1NDM5LCJpc3N1ZXIiOiJjb2RlcmdyYW0ubWUiLCJ1c2VybmFtZSI6InVuZGVydmlzZXJAY3BoYnVzaW5lc3MuZGsifQ.7Q0haE6ljHgPCFDT15Y08xguO-lqFEp4kMZY4KYAh88
                     username: underviser@cphbusiness.dk
-  /api/courses/count:
+  /courses/count:
     get:
       summary: Count courses in db
       description: Count courses in db
@@ -136,7 +134,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 17:59:35 GMT"
+                example: "Wens, 08 June 2022 17:59:35 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -153,7 +151,7 @@ paths:
                 Count courses in db:
                   value:
                     count: 12
-  /api/question:
+  /question:
     put:
       summary: Add answer to question
       description: Add answer to question
@@ -204,7 +202,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 18:07:36 GMT"
+                example: "Wens, 08 June 2022 18:07:36 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -319,7 +317,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 18:00:14 GMT"
+                example: "Wens, 08 June 2022 18:00:14 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -358,7 +356,7 @@ paths:
                     example: "http://facebook.ru"
                   timestamp:
                     type: string
-                    example: "2021-05-11 20:00:14.431462"
+                    example: "2022-05-11 20:00:14.431462"
                   topic:
                     type: string
                     example: Fejl i postman
@@ -374,9 +372,9 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.ru"
-                    timestamp: "2021-05-11 20:00:14.431462"
+                    timestamp: "2022-05-11 20:00:14.431462"
                     topic: Fejl i postman
-  /api/questions:
+  /questions:
     get:
       summary: Get all questions
       description: Get all questions
@@ -396,7 +394,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 17:59:59 GMT"
+                example: "Wens, 08 June 2022 17:59:59 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -467,7 +465,7 @@ paths:
                       example: "http://facebook.dk"
                     timestamp:
                       type: string
-                      example: "2021-05-05 11:56:14.0"
+                      example: "2022-06-08 11:56:14.0"
                     topic:
                       type: string
                       example: Fejl i JPA
@@ -491,7 +489,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 11:56:14.0"
+                    timestamp: "2022-06-08 11:56:14.0"
                     topic: Fejl i JPA
                   - answer:
                       answer: Rigtigt godt svar
@@ -512,7 +510,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 12:52:07.0"
+                    timestamp: "2022-06-08 12:52:07.0"
                     topic: Fejl i JPA
                   - description: JPA kan til tider være træls
                     id: 3
@@ -523,7 +521,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 12:53:40.0"
+                    timestamp: "2022-06-08 12:53:40.0"
                     topic: Fejl i JPA
                   - description: JPA kan til tider være træls
                     id: 4
@@ -534,7 +532,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 12:58:41.0"
+                    timestamp: "2022-06-08 12:58:41.0"
                     topic: Fejl i JPA
                   - description: JPA kan til tider være træls
                     id: 5
@@ -545,7 +543,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 13:12:12.0"
+                    timestamp: "2022-06-08 13:12:12.0"
                     topic: Fejl i JPA
                   - description: JPA kan til tider være træls
                     id: 6
@@ -556,7 +554,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 13:26:12.0"
+                    timestamp: "2022-06-08 13:26:12.0"
                     topic: Fejl i JPA
                   - answer:
                       answer: Rigtigt godt svar
@@ -577,7 +575,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 13:48:07.0"
+                    timestamp: "2022-06-08 13:48:07.0"
                     topic: Fejl i JPA
                   - description: JPA kan til tider være træls
                     id: 8
@@ -588,7 +586,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-06 08:59:13.0"
+                    timestamp: "2022-05-06 08:59:13.0"
                     topic: Fejl i JPA
                   - description: Giver ingen mening
                     id: 9
@@ -599,7 +597,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.ru"
-                    timestamp: "2021-05-11 19:45:30.0"
+                    timestamp: "2022-05-11 19:45:30.0"
                     topic: Fejl i postman
               examples:
                 Get all questions:
@@ -623,7 +621,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 11:56:14.0"
+                      timestamp: "2022-06-08 11:56:14.0"
                       topic: Fejl i JPA
                     - answer:
                         answer: Rigtigt godt svar
@@ -644,7 +642,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 12:52:07.0"
+                      timestamp: "2022-06-08 12:52:07.0"
                       topic: Fejl i JPA
                     - description: JPA kan til tider være træls
                       id: 3
@@ -655,7 +653,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 12:53:40.0"
+                      timestamp: "2022-06-08 12:53:40.0"
                       topic: Fejl i JPA
                     - description: JPA kan til tider være træls
                       id: 4
@@ -666,7 +664,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 12:58:41.0"
+                      timestamp: "2022-06-08 12:58:41.0"
                       topic: Fejl i JPA
                     - description: JPA kan til tider være træls
                       id: 5
@@ -677,7 +675,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 13:12:12.0"
+                      timestamp: "2022-06-08 13:12:12.0"
                       topic: Fejl i JPA
                     - description: JPA kan til tider være træls
                       id: 6
@@ -688,7 +686,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 13:26:12.0"
+                      timestamp: "2022-06-08 13:26:12.0"
                       topic: Fejl i JPA
                     - answer:
                         answer: Rigtigt godt svar
@@ -709,7 +707,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 13:48:07.0"
+                      timestamp: "2022-06-08 13:48:07.0"
                       topic: Fejl i JPA
                     - description: JPA kan til tider være træls
                       id: 8
@@ -720,7 +718,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-06 08:59:13.0"
+                      timestamp: "2022-05-06 08:59:13.0"
                       topic: Fejl i JPA
                     - description: Giver ingen mening
                       id: 9
@@ -731,9 +729,9 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.ru"
-                      timestamp: "2021-05-11 19:45:30.0"
+                      timestamp: "2022-05-11 19:45:30.0"
                       topic: Fejl i postman
-  /api/questions/semester/2:
+  /questions/semester/2:
     get:
       summary: Get questions by semester id
       description: Get questions by semester id
@@ -753,7 +751,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 17:59:49 GMT"
+                example: "Wens, 08 June 2022 17:59:49 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -824,7 +822,7 @@ paths:
                       example: "http://facebook.dk"
                     timestamp:
                       type: string
-                      example: "2021-05-05 13:48:07.0"
+                      example: "2022-06-08 13:48:07.0"
                     topic:
                       type: string
                       example: Fejl i JPA
@@ -848,7 +846,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-05 13:48:07.0"
+                    timestamp: "2022-06-08 13:48:07.0"
                     topic: Fejl i JPA
                   - description: JPA kan til tider være træls
                     id: 8
@@ -859,7 +857,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.dk"
-                    timestamp: "2021-05-06 08:59:13.0"
+                    timestamp: "2022-05-06 08:59:13.0"
                     topic: Fejl i JPA
                   - description: Giver ingen mening
                     id: 9
@@ -870,7 +868,7 @@ paths:
                       id: 1
                       name: Emil
                     studentLink: "http://facebook.ru"
-                    timestamp: "2021-05-11 19:45:30.0"
+                    timestamp: "2022-05-11 19:45:30.0"
                     topic: Fejl i postman
               examples:
                 Get questions by semester id:
@@ -894,7 +892,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-05 13:48:07.0"
+                      timestamp: "2022-06-08 13:48:07.0"
                       topic: Fejl i JPA
                     - description: JPA kan til tider være træls
                       id: 8
@@ -905,7 +903,7 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.dk"
-                      timestamp: "2021-05-06 08:59:13.0"
+                      timestamp: "2022-05-06 08:59:13.0"
                       topic: Fejl i JPA
                     - description: Giver ingen mening
                       id: 9
@@ -916,9 +914,9 @@ paths:
                         id: 1
                         name: Emil
                       studentLink: "http://facebook.ru"
-                      timestamp: "2021-05-11 19:45:30.0"
+                      timestamp: "2022-05-11 19:45:30.0"
                       topic: Fejl i postman
-  /api/schools/all:
+  /schools/all:
     get:
       summary: Get all schools with courses and semesters
       description: Get all schools with courses and semesters
@@ -938,7 +936,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 17:59:41 GMT"
+                example: "Wens, 08 June 2022 17:59:41 GMT"
             Keep-Alive:
               schema:
                 type: string
@@ -1392,7 +1390,7 @@ paths:
                       id: 4
                       img: cbs.png
                       name: CBS
-  /api/schools/count:
+  /schools/count:
     get:
       summary: Count schools in DB
       description: Count schools in DB
@@ -1412,7 +1410,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: "Tue, 11 May 2021 17:59:22 GMT"
+                example: "Wens, 08 June 2022 17:59:22 GMT"
             Keep-Alive:
               schema:
                 type: string

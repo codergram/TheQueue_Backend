@@ -100,6 +100,7 @@ public class JavaXEmailService {
           new InternetAddress(
               props.getProperty("SENT_FROM"), props.getProperty("SENT_FROM_NAME")));
       InternetAddress[] toAddresses = {new InternetAddress(toAddress)};
+
       msg.setRecipients(Message.RecipientType.TO, toAddresses);
       msg.setSubject(subject);
       msg.setSentDate(new Date());
@@ -107,8 +108,6 @@ public class JavaXEmailService {
       // Bodypart for text
       MimeBodyPart messageBodyPart = new MimeBodyPart();
       messageBodyPart.setContent(message, "text/html; charset=utf-8");
-
-
       multipart.addBodyPart(messageBodyPart);
 
       // Sets content of message

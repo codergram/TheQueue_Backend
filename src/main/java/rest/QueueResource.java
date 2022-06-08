@@ -100,6 +100,5 @@ public class QueueResource {
     System.out.println("PUT REQUEST: addAnswer");
     System.out.println("JSON recieved: " + dto);
     return GSON.toJson(FACADE.addAnswer(dto));
-
   }
 }
